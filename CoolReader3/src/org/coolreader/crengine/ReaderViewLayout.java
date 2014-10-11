@@ -1,10 +1,7 @@
 package org.coolreader.crengine;
 
-import java.util.ArrayList;
-
 import org.coolreader.CoolReader;
 import org.coolreader.crengine.CRToolBar.OnActionHandler;
-import org.coolreader.crengine.CRToolBar.OnOverflowHandler;
 
 import android.graphics.Rect;
 import android.view.ViewGroup;
