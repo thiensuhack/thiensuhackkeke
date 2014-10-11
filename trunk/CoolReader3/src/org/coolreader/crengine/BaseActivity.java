@@ -12,7 +12,6 @@ import java.util.Locale;
 import org.coolreader.R;
 import org.coolreader.db.CRDBService;
 import org.coolreader.db.CRDBServiceAccessor;
-import org.coolreader.sync.SyncServiceAccessor;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

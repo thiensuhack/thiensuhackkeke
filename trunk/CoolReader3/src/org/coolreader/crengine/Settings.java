@@ -188,7 +188,9 @@ public interface Settings {
     
     
     public enum Lang {
-    	DEFAULT("system", R.string.options_app_locale_system, R.raw.help_template_en),
+    	//DEFAULT("system", R.string.options_app_locale_system, R.raw.help_template_en),
+    	DEFAULT("vi", R.string.options_app_locale_vi, R.raw.help_template_en),
+//    	VI("vi", R.string.options_app_locale_vi, R.raw.help_template_en),
     	EN("en", R.string.options_app_locale_en, R.raw.help_template_en),
         DE("de", R.string.options_app_locale_de, 0),
     	ES("es", R.string.options_app_locale_es, 0),
