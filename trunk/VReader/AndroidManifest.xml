@@ -108,20 +108,20 @@
             </intent-filter>
         </activity>
 
-        <service android:name="org.coolreader.sync.SyncService" />
+<!--         <service android:name="org.coolreader.sync.SyncService" /> -->
         <!-- Database service -->
         <service android:name="org.coolreader.db.CRDBService" />
 
         <!-- Donations support -->
-        <service android:name="org.coolreader.donations.BillingService" />
+<!--         <service android:name="org.coolreader.donations.BillingService" /> -->
 
-        <receiver android:name="org.coolreader.donations.BillingReceiver" >
-            <intent-filter>
-                <action android:name="com.android.vending.billing.IN_APP_NOTIFY" />
-                <action android:name="com.android.vending.billing.RESPONSE_CODE" />
-                <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED" />
-            </intent-filter>
-        </receiver>
+<!--         <receiver android:name="org.coolreader.donations.BillingReceiver" > -->
+<!--             <intent-filter> -->
+<!--                 <action android:name="com.android.vending.billing.IN_APP_NOTIFY" /> -->
+<!--                 <action android:name="com.android.vending.billing.RESPONSE_CODE" /> -->
+<!--                 <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED" /> -->
+<!--             </intent-filter> -->
+<!--         </receiver> -->
         <!-- Stop TTS on incoming call -->
         <receiver android:name="org.coolreader.PhoneStateReceiver" >
             <intent-filter>
