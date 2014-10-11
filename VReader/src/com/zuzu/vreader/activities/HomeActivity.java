@@ -22,7 +22,7 @@ public class HomeActivity extends CoolReader {
 //		} else {
 //			return;
 //		}
-		path = "/mnt/sdcard/Dung-bao-gio-di-an-mot-minh-Keith-Ferrazzi.-Tahl-Raz_.epub";
+		path = "/mnt/sdcard/TheGioiSach/200562.epub";
 		FileInfo dir = Services.getScanner().findParent(new FileInfo(path),
 				Services.getScanner().getRoot());
 		FileInfo bookInfo = dir.findItemByPathName(path);
