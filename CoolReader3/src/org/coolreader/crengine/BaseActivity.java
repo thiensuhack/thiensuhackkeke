@@ -1509,8 +1509,8 @@ public class BaseActivity extends Activity implements Settings {
 	        }
 
 	        //thiensuhack - local
-	        props.applyDefault(ReaderView.PROP_APP_LOCALE, Lang.DEFAULT.code);
-	        //props.applyDefault(Settings.PROP_APP_LOCALE, "vi");
+	        //props.applyDefault(ReaderView.PROP_APP_LOCALE, Lang.DEFAULT.code);
+	        props.applyDefault(Settings.PROP_APP_LOCALE, "vi");
 	        
 	        props.applyDefault(ReaderView.PROP_APP_THEME, DeviceInfo.FORCE_LIGHT_THEME ? "WHITE" : "LIGHT");
 	        props.applyDefault(ReaderView.PROP_APP_THEME_DAY, DeviceInfo.FORCE_LIGHT_THEME ? "WHITE" : "LIGHT");
