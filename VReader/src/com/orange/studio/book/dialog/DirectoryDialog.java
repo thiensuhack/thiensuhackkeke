@@ -22,9 +22,9 @@ import android.widget.TextView;
 
 import com.orange.studio.book.R;
 
-public class DialogChooseDirectory implements OnItemClickListener,
+public class DirectoryDialog implements OnItemClickListener,
 		OnClickListener {
-	public interface Result {
+	public interface ResultDirectorySelected {
 		void onChooseDirectory(String dir);
 	}
 	List<File> m_entries = new ArrayList<File>();
@@ -32,7 +32,7 @@ public class DialogChooseDirectory implements OnItemClickListener,
 	Context m_context;
 	AlertDialog m_alertDialog;
 	ListView m_list;
-	Result m_result = null;
+	ResultDirectorySelected m_result = null;
 	DirAdapter adapter = null;
 
 	class ItemViewHolder {
@@ -68,7 +68,7 @@ public class DialogChooseDirectory implements OnItemClickListener,
 
 	}
 
-	public DialogChooseDirectory(Context ctx, Result res, String startDir) {
+	public DirectoryDialog(Context ctx, ResultDirectorySelected res, String startDir) {
 		m_context = ctx;
 		m_result = res;
 

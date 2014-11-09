@@ -12,11 +12,14 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.orange.studio.book.R;
 import com.orange.studio.book.config.OrangeConfig.MENU_ID;
+import com.orange.studio.book.dialog.DirectoryDialog;
 import com.orange.studio.book.dialog.ExitDialog;
+import com.orange.studio.book.dialog.DirectoryDialog.ResultDirectorySelected;
 import com.orange.studio.book.fragment.HomeFragment;
 import com.orange.studio.book.fragment.NavigationDrawerFragment;
 
@@ -29,6 +32,10 @@ NavigationDrawerFragment.NavigationDrawerCallbacks, OnClickListener {
 	
 	private ProgressDialog mProgressDialog = null;
 	private ExitDialog mExitDialog=null;
+	
+	private DirectoryDialog mDirectoryDialog=null;
+	private ResultDirectorySelected mResultDirectory=null;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -72,7 +79,15 @@ NavigationDrawerFragment.NavigationDrawerCallbacks, OnClickListener {
 	private void initView(){
 		mTitle=(TextView) findViewById(R.id.appTitle);		
 		mExitDialog = new ExitDialog(HomeActivity.this);
+		
+		mResultDirectory=new ResultDirectorySelected() {
+			@Override
+			public void onChooseDirectory(String dir) {
+				Toast.makeText(getApplicationContext(), dir, Toast.LENGTH_LONG).show();
+			}
+		};
 	}
+	
 	private void initListener(){
 		
 	}
@@ -138,6 +153,9 @@ NavigationDrawerFragment.NavigationDrawerCallbacks, OnClickListener {
 			finish();
 		} catch (Exception e) {
 		}
+	}
+	public void showSelectFileDialog(){
+		mDirectoryDialog=new DirectoryDialog(HomeActivity.this, mResultDirectory, null);
 	}
 	@Override
 	public void onClick(View arg0) {

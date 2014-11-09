@@ -7,15 +7,17 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.orange.studio.book.R;
+import com.orange.studio.book.activity.HomeActivity;
 import com.todddavies.components.progressbar.ProgressWheel;
 
-public class BaseFragment extends Fragment{
+public class BaseFragment extends Fragment implements OnClickListener{
 	protected View mView = null;
 	protected DisplayImageOptions options;
 	
@@ -23,7 +25,7 @@ public class BaseFragment extends Fragment{
 	protected View mLoadingView=null;
 	protected ProgressWheel mProgress=null;
 
-	
+	protected HomeActivity mHomeActivity=null;
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -78,5 +80,16 @@ public class BaseFragment extends Fragment{
 				.cacheInMemory(true).considerExifParams(true)
 				.bitmapConfig(Bitmap.Config.RGB_565).considerExifParams(true)
 				.displayer(new FadeInBitmapDisplayer(300)).handler(new Handler()).build();
+	}
+	@Override
+	public void onClick(View v) {
+		
+	}
+	protected HomeActivity getHomeActivity(){
+		try {
+			return (HomeActivity)getActivity();
+		} catch (Exception e) {
+			return null;
+		}
 	}
 }
