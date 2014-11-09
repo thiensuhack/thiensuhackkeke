@@ -14,4 +14,10 @@
     <string name="dialog_exit_app_btn_Ok">OK</string>
     <string name="dialog_exit_app_btn_Cancel">Cancel</string>
     <string name="exit_label">Close</string>
+    <!-- navigation drawer -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    
+    <!-- Search -->
+    <string name="search_text_hint">Search books...</string>
 </resources>

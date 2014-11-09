@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/pink"
+    tools:context="com.orange.studio.bobo.fragments.NavigationDrawerFragment" >
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/layout_search_bar"
+        android:layout_margin="7dp" />
+
+    <ListView
+        android:id="@+id/menuDrawerListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/pink"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:layout_marginTop="0dp" />
+
+</LinearLayout>
