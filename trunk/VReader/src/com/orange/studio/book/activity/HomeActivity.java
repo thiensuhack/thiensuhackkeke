@@ -11,7 +11,9 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.orange.studio.book.R;
 import com.orange.studio.book.config.OrangeConfig.MENU_ID;
 import com.orange.studio.book.dialog.ExitDialog;
@@ -22,7 +24,9 @@ public class HomeActivity extends ActionBarActivity implements
 NavigationDrawerFragment.NavigationDrawerCallbacks, OnClickListener {
 	private NavigationDrawerFragment mNavigationDrawerFragment;
 	private ActionBar mActionbar;
-	private CharSequence mTitle;
+//	private CharSequence mTitle;
+	private TextView mTitle;
+	
 	private ProgressDialog mProgressDialog = null;
 	private ExitDialog mExitDialog=null;
 	@Override
@@ -32,13 +36,22 @@ NavigationDrawerFragment.NavigationDrawerCallbacks, OnClickListener {
 
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
-		mTitle = getTitle();
+//		mTitle = getTitle();
 
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
 		mActionbar = getSupportActionBar();
-		mActionbar.hide();
+		//mActionbar.hide();
+		
+		
+		mActionbar.setDisplayShowTitleEnabled(false);
+		mActionbar
+                .setDisplayShowCustomEnabled(true);
+		mActionbar.setDisplayUseLogoEnabled(false);
+		mActionbar.setDisplayShowHomeEnabled(false);
+        setCustomTitleBar(R.layout.layout_action_bar);
+		
 		getSupportFragmentManager().addOnBackStackChangedListener(
 				new OnBackStackChangedListener() {
 
@@ -57,10 +70,19 @@ NavigationDrawerFragment.NavigationDrawerCallbacks, OnClickListener {
 		initProgress(null);
 	}
 	private void initView(){
+		mTitle=(TextView) findViewById(R.id.appTitle);		
 		mExitDialog = new ExitDialog(this);
 	}
 	private void initListener(){
 		
+	}
+	protected void initProgress(String message) {
+		mProgressDialog = new ProgressDialog(HomeActivity.this);
+		if (message != null) {
+			mProgressDialog.setMessage(message);
+		} else {
+			mProgressDialog.setMessage(getString(R.string.waitting_message));
+		}
 	}
 	private void updateTitleAndDrawer(Fragment fragment) {
 		
@@ -102,19 +124,25 @@ NavigationDrawerFragment.NavigationDrawerCallbacks, OnClickListener {
 		}
 		replaceFragment(mFragment);
 	}
-	protected void initProgress(String message) {
-		mProgressDialog = new ProgressDialog(HomeActivity.this);
-		if (message != null) {
-			mProgressDialog.setMessage(message);
-		} else {
-			mProgressDialog.setMessage(getString(R.string.waitting_message));
+	public void setCustomTitleBar(int resId){
+		mActionbar.setCustomView(resId);
+	}
+	public void setTitleBar(String title){
+		if(mTitle!=null &&title!=null){
+			mTitle.setText(title);
+		}
+	}
+	public void exitApplication(){
+		try {
+			ImageLoader.getInstance().clearMemoryCache();
+			finish();
+		} catch (Exception e) {
 		}
 	}
 	@Override
 	public void onClick(View arg0) {
 		
 	}
-
 	
 	@Override
 	public void onBackPressed() {
