@@ -64,8 +64,9 @@ public class DirectoryDialog implements OnItemClickListener,
 					}else{
 						continue;
 					}
-				}
-				m_entries.add(file);
+				}else{
+					m_entries.add(file);
+				}				
 			}
 		}
 
