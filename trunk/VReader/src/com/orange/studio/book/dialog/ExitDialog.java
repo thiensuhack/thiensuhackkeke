@@ -18,6 +18,10 @@ public class ExitDialog extends BaseDialog {
 			@Override
 			public void onPositiveButtonClicked() {
 				dismiss();
+				try {
+					mHomeActivity.exitApplication();
+				} catch (Exception e) {
+				}
 			}
 
 			@Override
