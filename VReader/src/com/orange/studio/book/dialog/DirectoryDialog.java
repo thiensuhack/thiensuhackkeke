@@ -21,19 +21,21 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.orange.studio.book.R;
+import com.orange.studio.book.util.OrangeUtils;
 
 public class DirectoryDialog implements OnItemClickListener,
 		OnClickListener {
 	public interface ResultDirectorySelected {
 		void onChooseDirectory(String dir);
 	}
-	List<File> m_entries = new ArrayList<File>();
-	File m_currentDir;
-	Context m_context;
-	AlertDialog m_alertDialog;
-	ListView m_list;
-	ResultDirectorySelected m_result = null;
-	DirAdapter adapter = null;
+	private List<File> m_entries = new ArrayList<File>();
+	private File m_currentDir;
+	private Context m_context;
+	private AlertDialog m_alertDialog;
+	private ListView m_list;
+	private ResultDirectorySelected m_result = null;
+	private DirAdapter adapter = null;
+	private String fileExtension="epub";
 
 	class ItemViewHolder {
 		public TextView fileName;
@@ -51,10 +53,18 @@ public class DirectoryDialog implements OnItemClickListener,
 			m_entries.add(new File(".."));
 
 		if (files != null) {
+			String temp=null;
 			for (File file : files) {
 				// if ( !file.isDirectory() )
 				// continue;
-
+				if(!file.isDirectory()){
+					temp=OrangeUtils.getExtension(file);
+					if(temp!=null && temp.equals(fileExtension)){
+						m_entries.add(file);
+					}else{
+						continue;
+					}
+				}
 				m_entries.add(file);
 			}
 		}
