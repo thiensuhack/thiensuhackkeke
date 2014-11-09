@@ -4,6 +4,8 @@ import org.coolreader.CoolReader;
 import org.coolreader.crengine.FileInfo;
 import org.coolreader.crengine.Services;
 
+import com.orange.studio.book.config.OrangeConfig.BUNDLE_KEY;
+
 import android.os.Bundle;
 
 public class OrangeReaderActivity extends CoolReader {
@@ -17,12 +19,12 @@ public class OrangeReaderActivity extends CoolReader {
 		// this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		Bundle bundle = new Bundle();
 		bundle = this.getIntent().getExtras();
-//		if (bundle != null) {
-//			path = bundle.getString("file:///mnt/sdcard/anhchiyeudau.epub");
-//		} else {
-//			return;
-//		}
-		path = "/mnt/sdcard/TheGioiSach/200562.epub";
+		if (bundle != null) {
+			path = bundle.getString(BUNDLE_KEY.EBOOK_FILE);
+		} else {
+			return;
+		}
+		//path = "/mnt/sdcard/TheGioiSach/200562.epub";
 		FileInfo dir = Services.getScanner().findParent(new FileInfo(path),
 				Services.getScanner().getRoot());
 		FileInfo bookInfo = dir.findItemByPathName(path);

@@ -13,4 +13,7 @@ public class OrangeConfig {
 		public static final int HOME_FRAGMENT=1;
 		public static final int DETAIL_FRAGMENT=2;
 	}
+	public static class BUNDLE_KEY{
+		public static final String EBOOK_FILE="ebookfile";
+	}
 }

@@ -1,6 +1,7 @@
 package com.orange.studio.book.activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.orange.studio.book.R;
+import com.orange.studio.book.config.OrangeConfig.BUNDLE_KEY;
 import com.orange.studio.book.config.OrangeConfig.MENU_ID;
 import com.orange.studio.book.dialog.DirectoryDialog;
 import com.orange.studio.book.dialog.ExitDialog;
@@ -83,7 +85,10 @@ NavigationDrawerFragment.NavigationDrawerCallbacks, OnClickListener {
 		mResultDirectory=new ResultDirectorySelected() {
 			@Override
 			public void onChooseDirectory(String dir) {
-				Toast.makeText(getApplicationContext(), dir, Toast.LENGTH_LONG).show();
+				//Toast.makeText(getApplicationContext(), dir, Toast.LENGTH_LONG).show();
+				Intent intent=new Intent(HomeActivity.this,OrangeReaderActivity.class);
+				intent.putExtra(BUNDLE_KEY.EBOOK_FILE, dir);
+				startActivity(intent);				
 			}
 		};
 	}
