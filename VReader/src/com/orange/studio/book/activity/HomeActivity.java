@@ -71,7 +71,7 @@ NavigationDrawerFragment.NavigationDrawerCallbacks, OnClickListener {
 	}
 	private void initView(){
 		mTitle=(TextView) findViewById(R.id.appTitle);		
-		mExitDialog = new ExitDialog(this);
+		mExitDialog = new ExitDialog(HomeActivity.this);
 	}
 	private void initListener(){
 		
