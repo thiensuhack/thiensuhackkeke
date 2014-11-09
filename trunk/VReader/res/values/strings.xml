@@ -5,4 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
 
+    <string name="not_found_data_message">Not found data :(</string>
+    <string name="txt_btn_retry">RETRY</string>
+    <string name="msg_load_more">Loading...</string>
 </resources>
