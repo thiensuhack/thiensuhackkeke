@@ -1,4 +1,4 @@
-package com.zuzu.vreader;
+package com.orange.studio.book;
 
 public class VReaderApplicationContext {
 

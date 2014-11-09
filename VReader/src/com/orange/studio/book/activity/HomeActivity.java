@@ -1,4 +1,4 @@
-package com.zuzu.vreader.activities;
+package com.orange.studio.book.activity;
 
 import org.coolreader.CoolReader;
 import org.coolreader.crengine.FileInfo;
