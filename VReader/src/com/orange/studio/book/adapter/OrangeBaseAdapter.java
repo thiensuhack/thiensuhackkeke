@@ -11,11 +11,11 @@ import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.orange.studio.book.R;
 
-public class OneTechBaseAdapter extends BaseAdapter {
+public class OrangeBaseAdapter extends BaseAdapter {
 
 	protected DisplayImageOptions options;
 
-	public OneTechBaseAdapter() {
+	public OrangeBaseAdapter() {
 	}
 
 	@Override
