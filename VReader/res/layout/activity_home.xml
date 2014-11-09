@@ -14,7 +14,7 @@
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.orange.studio.bobo.activities.HomeActivity" >
+        tools:context="com.orange.studio.book.activity.HomeActivity" >
 
         <FrameLayout
             android:id="@+id/container"
@@ -24,7 +24,7 @@
 
         <fragment
             android:id="@+id/navigation_drawer"
-            android:name="com.orange.studio.bobo.fragments.NavigationDrawerFragment"
+            android:name="com.orange.studio.book.fragment.NavigationDrawerFragment"
             android:layout_width="@dimen/navigation_drawer_width"
             android:layout_height="match_parent"
             android:layout_gravity="start"
