@@ -13,7 +13,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.orange.studio.book.R;
+import com.orange.studio.book.config.OrangeConfig.MENU_ID;
 import com.orange.studio.book.dialog.ExitDialog;
+import com.orange.studio.book.fragment.HomeFragment;
 import com.orange.studio.book.fragment.NavigationDrawerFragment;
 
 public class HomeActivity extends ActionBarActivity implements
@@ -86,14 +88,19 @@ NavigationDrawerFragment.NavigationDrawerCallbacks, OnClickListener {
 	}
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
+		Fragment mFragment = null;
 		switch (position) {
-		case 1:
-			
+		case MENU_ID.HOME_FRAGMENT:
+			mFragment = HomeFragment.instantiate(getApplicationContext(),
+					HomeFragment.class.getName());
 			break;
 
 		default:
+			mFragment = HomeFragment.instantiate(getApplicationContext(),
+					HomeFragment.class.getName());
 			break;
 		}
+		replaceFragment(mFragment);
 	}
 	protected void initProgress(String message) {
 		mProgressDialog = new ProgressDialog(HomeActivity.this);

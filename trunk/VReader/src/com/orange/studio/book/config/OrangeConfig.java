@@ -9,4 +9,8 @@ public class OrangeConfig {
 	public static class Config {
 		public static final boolean DEVELOPER_MODE = false;
 	}
+	public static class MENU_ID{
+		public static final int HOME_FRAGMENT=1;
+		public static final int DETAIL_FRAGMENT=2;
+	}
 }
