@@ -1,5 +1,6 @@
 package com.orange.studio.book.util;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -20,6 +21,20 @@ import com.zuzu.db.store.SimpleStoreIF;
 
 public class OrangeUtils {
 	
+	public static String getExtension(File f) {
+        try {
+        	String ext = null;
+            String s = f.getName();
+            int i = s.lastIndexOf('.');
+
+            if (i > 0 && i < s.length() - 1) {
+                ext = s.substring(i + 1).toLowerCase();
+            }
+            return ext;
+		} catch (Exception e) {
+		}
+        return null;
+    }
 	public static double convertStringToFloat(String value){
 		try {
 			return Double.valueOf(value);
