@@ -1,4 +1,4 @@
-package com.zuzu.vreader.activities;
+package com.orange.studio.book.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
