@@ -4,10 +4,10 @@
     android:background="@color/white"
     android:orientation="vertical" >
 
-    <include
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/layout_action_bar" />
+<!--     <include -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         layout="@layout/layout_action_bar" /> -->
 
     <android.support.v4.widget.DrawerLayout
         xmlns:tools="http://schemas.android.com/tools"
