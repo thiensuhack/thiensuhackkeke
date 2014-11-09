@@ -20,4 +20,7 @@
     
     <!-- Search -->
     <string name="search_text_hint">Search books...</string>
+    
+    <!-- Dialog -->
+    <string name="waitting_message">Please, wait...</string>
 </resources>
