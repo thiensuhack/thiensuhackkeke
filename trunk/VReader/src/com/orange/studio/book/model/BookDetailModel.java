@@ -9,15 +9,19 @@ import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.orange.studio.book.OrangeApplicationContext;
 import com.orange.studio.book.config.OrangeConfig.Cache;
 import com.orange.studio.book.http.OrangeHttpRequest;
 import com.orange.studio.book.listener.BookDetailIF;
 import com.orange.studio.book.object.BookDTO;
+import com.orange.studio.book.object.ResultHttpDTO;
 import com.orange.studio.book.util.OrangeUtils;
 import com.zuzu.db.store.SimpleStoreIF;
 
@@ -95,16 +99,48 @@ public class BookDetailModel implements BookDetailIF{
 			ids_miss = ids;
 		}
 		if(ids_miss!=null && ids_miss.size()>0){
-			
+			List<BookDTO> listBook=getListBookDetailFromIds(url, ids_miss);
+			if(listBook!=null&& listBook.size()>0){
+				result.addAll(listBook);
+			}
 		}else{
 			return result;
 		}
 		return null;
 	}
 	private List<BookDTO> getListBookDetailFromIds(String url, List<Integer> ids) {
+		List<BookDTO> result=null;
 		try {
 			String data=OrangeHttpRequest.getInstance().getStringFromServer(url, null);
-			
+			if(data!=null && data.length()>0){
+				ResultHttpDTO resultHttp=OrangeUtils.getResultRequest(data);
+				if(resultHttp!=null && resultHttp.error_code==0){
+					JSONArray jArr = (JSONArray)resultHttp.data;
+					if(jArr!=null && jArr.length()>0){
+						result = new ArrayList<BookDTO>();
+						BookDTO temp=null;
+						for (int i = 0; i < jArr.length(); i++) {
+							JSONObject jbTemp=jArr.getJSONObject(i);
+							temp=deserialize(jbTemp);
+							if(temp!=null){
+								result.add(temp);
+							}
+						}
+					}
+				}
+			}			
+		} catch (Exception e) {
+		}
+		return null;
+	}
+	private BookDTO deserialize(JSONObject jb){
+		try {
+			BookDTO result=new BookDTO();
+			result.id=jb.getInt("id");
+			result.name=jb.getString("name");
+			result.description=jb.optString("description","");
+			result.shortDescription=jb.optString("short_description","");
+			return result;
 		} catch (Exception e) {
 		}
 		return null;

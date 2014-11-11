@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.codec.binary.Hex;
+import org.json.JSONObject;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -16,11 +17,26 @@ import android.util.DisplayMetrics;
 
 import com.orange.studio.book.OrangeApplicationContext;
 import com.orange.studio.book.config.OrangeConfig;
+import com.orange.studio.book.object.ResultHttpDTO;
 import com.zuzu.db.store.SQLiteStore;
 import com.zuzu.db.store.SimpleStoreIF;
 
 public class OrangeUtils {
 	
+	public static ResultHttpDTO getResultRequest(String data){
+		ResultHttpDTO result= null;
+		try {			
+			JSONObject jb=new JSONObject(data);
+			if(jb!=null){
+				result=new ResultHttpDTO();
+				result.error_code = jb.getInt("error_code");
+				result.error_msg=jb.getString("error_msg");
+				result.data=jb.get("data");
+			}
+		} catch (Exception e) {
+		}
+		return result;
+	}
 	public static String getExtension(File f) {
         try {
         	String ext = null;

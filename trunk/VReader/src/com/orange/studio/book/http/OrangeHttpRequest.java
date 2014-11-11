@@ -50,7 +50,6 @@ public class OrangeHttpRequest implements HttpIF {
 	public String getStringFromServer(String url, Bundle params) {
 		StringBuilder builder = new StringBuilder();
 		HttpClient client = new DefaultHttpClient();
-
 		HttpGet httpGet = new HttpGet(url);
 
 		try {
