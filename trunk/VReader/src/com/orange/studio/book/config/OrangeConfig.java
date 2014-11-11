@@ -16,4 +16,14 @@ public class OrangeConfig {
 	public static class BUNDLE_KEY{
 		public static final String EBOOK_FILE="ebookfile";
 	}
+	public static class Cache {
+		public static final String LIST_BOOK_CACHE_KEY = "bookidscache";
+		public static final int LIST_BOOK_CACHE_NUMBER = 100;
+		
+		public static final String LIST_BOOK_DETAIL_CACHE_KEY = "bookdetailcache";
+		public static final int LIST_BOOK_DETAIL_CACHE_NUMBER = 500;
+
+		public static final String LIST_COMMON_CACHE_KEY = "categorycache";
+		public static final int LIST_COMMON_CACHE_NUMBER = 100;
+	}
 }
